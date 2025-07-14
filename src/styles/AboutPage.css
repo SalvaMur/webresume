@@ -57,7 +57,7 @@
 }
 
 .section-heading > h2 {
-	scroll-margin-top: 110px;
+	scroll-margin-top: 126px;
 }
 
 .summary-column {
@@ -95,6 +95,7 @@
 	color: #f0f8ff;
 	text-decoration: underline;
 	transition: color .3s ease, text-shadow .3s ease;
+	cursor: pointer;
 }
 
 .contents-link:hover {

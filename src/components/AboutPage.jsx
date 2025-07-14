@@ -18,6 +18,13 @@ const placeholder = `
 `;
 
 function AboutPage() {
+	const scrollTo = (id) => () => {
+		const el = document.getElementById(id);
+		if (el) {
+			el.scrollIntoView({behavior: "smooth", block: "start"});
+		}
+	};
+
 	return (
 		<div className="about-wrapper">
 			<div className="about">
@@ -45,27 +52,27 @@ function AboutPage() {
 									</div>
 									<ul className="contents-list">
 										<li>
-											<a href="#Personal_Statement" className="contents-link">
+											<a onClick={scrollTo("Personal_Statement")} className="contents-link">
 												<div>Personal Statement</div>
 											</a>
 										</li>
 										<li>
-											<a href="#Education" className="contents-link">
+											<a onClick={scrollTo("Education")} className="contents-link">
 												<div>Education</div>
 											</a>
 										</li>
 										<li>
-											<a href="#Work_Experience" className="contents-link">
+											<a onClick={scrollTo("Work_Experience")} className="contents-link">
 												<div>Work Experience</div>
 											</a>
 										</li>
 										<li>
-											<a href="#Skills" className="contents-link">
+											<a onClick={scrollTo("Skills")} className="contents-link">
 												<div>Skills</div>
 											</a>
 										</li>
 										<li>
-											<a href="#Academic_Awards" className="contents-link">
+											<a onClick={scrollTo("Academic_Awards")} className="contents-link">
 												<div>Academic Awards</div>
 											</a>
 										</li>
