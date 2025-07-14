@@ -1,0 +1,65 @@
+{
+	"1": {
+		"folder": "project1",
+		"numOfImgs": 9,
+		"text": {
+			"title": "Project One",
+			"description": "lorem ipsum",
+			"summary": "lorem ipsum",
+			"body": "lorem ipsum",
+			"imageNotes": {
+				"0": "lorem ipsum",
+				"1": "lorem ipsum",
+				"2": "lorem ipsum",
+				"3": "lorem ipsum",
+				"4": "lorem ipsum",
+				"5": "lorem ipsum",
+				"6": "lorem ipsum",
+				"7": "lorem ipsum",
+				"8": "lorem ipsum"
+			}
+		}
+	},
+	"2": {
+		"folder": "project2",
+		"numOfImgs": 9,
+		"text": {
+			"title": "Project Two",
+			"description": "lorem ipsum",
+			"summary": "lorem ipsum",
+			"body": "lorem ipsum",
+			"imageNotes": {
+				"0": "lorem ipsum",
+				"1": "lorem ipsum",
+				"2": "lorem ipsum",
+				"3": "lorem ipsum",
+				"4": "lorem ipsum",
+				"5": "lorem ipsum",
+				"6": "lorem ipsum",
+				"7": "lorem ipsum",
+				"8": "lorem ipsum"
+			}
+		}
+	},
+	"3": {
+		"folder": "project3",
+		"numOfImgs": 9,
+		"text": {
+			"title": "Project Three",
+			"description": "lorem ipsum",
+			"summary": "lorem ipsum",
+			"body": "lorem ipsum",
+			"imageNotes": {
+				"0": "lorem ipsum",
+				"1": "lorem ipsum",
+				"2": "lorem ipsum",
+				"3": "lorem ipsum",
+				"4": "lorem ipsum",
+				"5": "lorem ipsum",
+				"6": "lorem ipsum",
+				"7": "lorem ipsum",
+				"8": "lorem ipsum"
+			}
+		}
+	}
+}

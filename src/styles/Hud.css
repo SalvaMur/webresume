@@ -1,0 +1,49 @@
+.hud {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.hud-button {
+	all: unset;
+	display: block;
+	width: 40px;
+	height: 40px;
+	background-color: #ffffff96;
+	transition: background-color .3s ease;
+	border-radius: 50%;
+	padding: 10px;
+	backdrop-filter: blur(30px);
+	filter: drop-shadow(0 5px 3px #000000)
+}
+
+.hud-button:hover {
+	background-color: #ffffff;
+	cursor: pointer;
+}
+
+.hud-button:active {
+	background-color: #00ff6a;
+	transition: none;
+}
+
+.tooltip {
+	visibility: hidden;
+	position: absolute;
+	bottom: 20%;
+	right: 120%;
+	width: max-content;
+	background-color: #141414;
+	padding: 4px 8px;
+	border-radius: 4px;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	text-align: center;
+	white-space: nowrap;
+	font-size: 1.25rem;
+}
+
+.hud-button:hover .tooltip {
+	visibility: visible;
+	opacity: 1;
+}
