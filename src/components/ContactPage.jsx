@@ -34,7 +34,7 @@ function ContactPage() {
 									rel="noopener noreferrer"
 								>
 									<img width="50px" height="42.5167px" className="link-icon"
-										src="/content/images/social_links/LI-In-Bug.png"
+										src={`${import.meta.env.BASE_URL}content/images/social_links/LI-In-Bug.png`}
 									/>
 									<span>Salvador Murillo</span>
 								</a>
@@ -46,7 +46,7 @@ function ContactPage() {
 									rel="noopener noreferrer"
 								>
 									<img width="50px" height="48.9167px" className="link-icon"
-										src="/content/images/social_links/github-mark-white.png"
+										src={`${import.meta.env.BASE_URL}content/images/social_links/github-mark-white.png`}
 									/>
 									<span>SalvaMur</span>
 								</a>
