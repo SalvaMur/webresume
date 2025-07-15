@@ -43,7 +43,9 @@ function AboutPage() {
 
 							<div className="summary-column">
 								<div className="portrait">
-									<img src="/content/images/portrait.jpg"/>
+									<img
+										src={`${import.meta.env.BASE_URL}content/images/portrait.jpg`}
+									/>
 								</div>
 
 								<div className="table-contents">
