@@ -1,0 +1,35 @@
+.welcome-wrapper {
+
+}
+
+.welcome {
+
+}
+
+.scene {
+	position: relative;
+}
+
+.scene-1 {
+	background-color: #6495ed;
+	height: 100vh;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+}
+
+.scene-2 {
+	background-color: #ff000065;
+	height: 100vh;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+}
+
+.scene-3 {
+	background-color: #6495ed;
+	height: 100vh;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+}

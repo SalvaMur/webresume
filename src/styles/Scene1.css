@@ -1,0 +1,143 @@
+.scene {
+	position: relative;
+}
+
+.stage-1-container {
+	height: 750vh;
+	position: relative;
+}
+
+.interscene-transition-1 {
+	height: 100vh;
+	background: linear-gradient(
+		to top,
+		#6495ed 0%,
+		#00000000 100%
+	);
+}
+
+.trigger-0 {
+	height: 100vh;
+	position: absolute;
+	top: 0;
+
+	width: 10px;
+	background-color: white;
+}
+
+.text-1-trigger {
+	height: 100vh;
+	position: absolute;
+	top: 150vh;
+
+	width: 10px;
+	background-color: blue;
+}
+
+.text-2-trigger {
+	height: 100vh;
+	position: absolute;
+	top: 300vh;
+
+	width: 10px;
+	background-color: yellow;
+}
+
+.text-3-trigger {
+	height: 100vh;
+	position: absolute;
+	top: 450vh;
+
+	width: 10px;
+	background-color: red;
+}
+
+.slide-1-trigger {
+	height: 100vh;
+	position: absolute;
+	top: 600vh;
+
+	width: 10px;
+	background-color: greenyellow;
+}
+
+.stage-1 {
+	display: flex;
+	height: 100vh;
+	position: sticky;
+	top: 0;
+	overflow: hidden;
+}
+
+.stage-1-slide-1 {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+	background-color: #0000005e;
+}
+
+.slide-1-text-wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: fit-content
+}
+
+.text-1 {
+	display: inline-block;
+	font-size: 4rem;
+	margin-right: 1rem;
+}
+
+.text-2 {
+	display: inline-block;
+	font-size: 4rem;
+}
+
+.text-3 {
+	display: inline-block;
+	font-size: 4rem;
+	text-wrap: wrap;
+	text-align: center;
+}
+
+.stage-1-slide-2 {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	background-color: #4444005e;
+}
+
+.slide-2-text-wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: fit-content;
+}
+
+.text-4 {
+	display: inline-block;
+	font-size: 4rem;
+	text-wrap: wrap;
+	text-align: center;
+}
+
+.subtext-5 {
+	font-size: 4rem;
+}
+
+.subtext-5 > span:not(:last-child) {
+	margin-right: 1rem;
+}
