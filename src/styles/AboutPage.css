@@ -19,15 +19,15 @@
 	width: 100%;
 }
 
-.section-wrapper.odd {
+.section-wrapper:nth-child(odd) {
+	background-color: #000000;
+}
+
+.section-wrapper:nth-child(even) {
 	background-color: #00000041;
 	backdrop-filter: blur(30px);
 	max-width: 1000px;
 	margin: 0 auto;
-}
-
-.section-wrapper.even {
-	background-color: #000000;
 }
 
 .section {

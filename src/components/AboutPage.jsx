@@ -34,7 +34,7 @@ function AboutPage() {
 					</div>
 				</div>
 
-				<div className="section-wrapper odd">
+				<div className="section-wrapper">
 					<div className="section">
 						<div className="section-content">
 							<div className="section-heading">
@@ -89,7 +89,7 @@ function AboutPage() {
 					</div>
 				</div>
 
-				<div className="section-wrapper even">
+				<div className="section-wrapper">
 					<div className="section">
 						<div className="section-content">
 							<div className="section-heading">
@@ -102,7 +102,7 @@ function AboutPage() {
 					</div>
 				</div>
 
-				<div className="section-wrapper odd">
+				<div className="section-wrapper">
 					<div className="section">
 						<div className="section-content">
 							<div className="section-heading">
@@ -116,7 +116,7 @@ function AboutPage() {
 					</div>
 				</div>
 
-				<div className="section-wrapper even">
+				<div className="section-wrapper">
 					<div className="section">
 						<div className="section-content">
 							<div className="section-heading">
@@ -156,7 +156,7 @@ function AboutPage() {
 					</div>
 				</div>
 
-				<div className="section-wrapper odd">
+				<div className="section-wrapper">
 					<div className="section">
 						<div className="section-content">
 							<div className="section-heading">
@@ -169,7 +169,7 @@ function AboutPage() {
 					</div>
 				</div>
 
-				<div className="section-wrapper even">
+				<div className="section-wrapper">
 					<div className="section">
 						<div className="section-content">
 							<div className="section-heading">
