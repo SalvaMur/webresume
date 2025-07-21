@@ -11,11 +11,11 @@ function Scene1() {
 		layoutEffect: true
 	});
 	const scene = useRef({
-		"frame1": { "threshold": 100 / 950, "exitLimit": 0.0 / 950, "isActive": false },
-		"frame2": { "threshold": 250 / 950, "exitLimit": 150 / 950, "isActive": false },
-		"frame3": { "threshold": 400 / 950, "exitLimit": 300 / 950, "isActive": false },
-		"frame4": { "threshold": 550 / 950, "exitLimit": 450 / 950, "isActive": false },
-		"frame5": { "threshold": 700 / 950, "exitLimit": 600 / 950, "isActive": false }
+		"frame1": { "threshold": 100 / 950, "isActive": false },
+		"frame2": { "threshold": 250 / 950, "isActive": false },
+		"frame3": { "threshold": 400 / 950, "isActive": false },
+		"frame4": { "threshold": 550 / 950, "isActive": false },
+		"frame5": { "threshold": 700 / 950, "isActive": false }
 	});
 	const sceneControls = {
 		"slide1": useAnimation(), "text1": useAnimation(), "text2": useAnimation(),
@@ -70,17 +70,13 @@ function Scene1() {
 			else control.start(variant);
 		};
 		
+		// Enter threshold animations (from first frame to last)
 		// Frame 1
 		if (y >= frame1.threshold && (!frame1.isActive || isMount)) {
 			scene.current.frame1.isActive = true;
 			
 			animateControl(slide1, "frame1");
 			animateControl(text1, "frame1");
-		}
-
-		else if (y >= frame1.exitLimit && y < frame1.threshold && (frame1.isActive || isMount)) {
-			scene.current.frame1.isActive = false;
-			// Redundant, threshold should always be passed for scene 1
 		}
 
 		// Frame 2
@@ -92,14 +88,6 @@ function Scene1() {
 			animateControl(text2, "frame2");
 		}
 
-		else if (y >= frame2.exitLimit && y < frame2.threshold && (frame2.isActive || isMount)) {
-			scene.current.frame2.isActive = false;
-			
-			animateControl(slide1, "frame1");
-			animateControl(text1, "frame1");
-			animateControl(text2, "hidden");
-		}
-
 		// Frame 3
 		if (y >= frame3.threshold && (!frame3.isActive || isMount)) {
 			scene.current.frame3.isActive = true;
@@ -108,20 +96,9 @@ function Scene1() {
 			animateControl(text3, "frame3");
 		}
 
-		else if (y >= frame3.exitLimit && y < frame3.threshold && (frame3.isActive || isMount)) {
-			scene.current.frame3.isActive = false;
-
-			animateControl(slide1, "frame2");
-			animateControl(text3, "hidden");
-		}
-
 		// Frame 4
 		if (y >= frame4.threshold && (!frame4.isActive || isMount)) {
 			scene.current.frame4.isActive = true;
-		}
-
-		else if (y >= frame4.exitLimit && y < frame4.threshold && (frame4.isActive || isMount)) {
-			scene.current.frame4.isActive = false;
 		}
 
 		// Frame 5
@@ -133,12 +110,42 @@ function Scene1() {
 			animateControl(text7, "frame5");
 		}
 
-		else if (y >= frame5.exitLimit && y < frame5.threshold && (frame5.isActive || isMount)) {
+		// Exit threshold animations (from last frame to first, order matters as styles additively apply)
+		// Frame 5
+		if (y < frame5.threshold && (frame5.isActive || isMount)) {
 			scene.current.frame5.isActive = false;
 
 			animateControl(text5, "hidden");
 			animateControl(text6, "hidden");
 			animateControl(text7, "hidden");
+		}
+
+		// Frame 4
+		if (y < frame4.threshold && (frame4.isActive || isMount)) {
+			scene.current.frame4.isActive = false;
+		}
+
+		// Frame 3
+		if (y < frame3.threshold && (frame3.isActive || isMount)) {
+			scene.current.frame3.isActive = false;
+
+			animateControl(slide1, "frame2");
+			animateControl(text3, "hidden");
+		}
+
+		// Frame 2
+		if (y < frame2.threshold && (frame2.isActive || isMount)) {
+			scene.current.frame2.isActive = false;
+			
+			animateControl(slide1, "frame1");
+			animateControl(text1, "frame1");
+			animateControl(text2, "hidden");
+		}
+
+		// Frame 1
+		if (y < frame1.threshold && (frame1.isActive || isMount)) {
+			scene.current.frame1.isActive = false;
+			// Redundant, threshold should always be passed for scene 1
 		}
 	};
 

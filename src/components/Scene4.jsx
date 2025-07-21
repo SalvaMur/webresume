@@ -11,7 +11,7 @@ function Scene4() {
 		layoutEffect: true
 	});
 	const scene = useRef({
-		"frame1": { "threshold": 100 / 1000, "exitLimit": 0.0 / 1000, "isActive": false }
+		"frame1": { "threshold": 100 / 1000, "isActive": false }
 	});
 	const sceneControls = {
 		"el1": useAnimation()
@@ -35,6 +35,7 @@ function Scene4() {
 			else control.start(variant);
 		};
 
+		// Enter threshold animations (first to last)
 		// Frame 1
 		if (y >= frame1.threshold && (!frame1.isActive || isMount)) {
 			scene.current.frame1.isActive = true;
@@ -42,7 +43,9 @@ function Scene4() {
 			animateControl(el1, "frame1");
 		}
 
-		else if (y >= frame1.exitLimit && y < frame1.threshold && (frame1.isActive || isMount)) {
+		// Exit threshold animations (last to first)
+		// Frame 1
+		if (y < frame1.threshold && (frame1.isActive || isMount)) {
 			scene.current.frame1.isActive = false;
 
 			animateControl(el1, "hidden");
