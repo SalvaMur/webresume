@@ -1,181 +1,188 @@
 import { motion as m, useAnimation, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
-import "../styles/Scene1.css";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import useTargetScrollProgress from "../hooks/useTargetScrollProgress";
+import styles from "../styles/Scene1.module.css";
 
 function Scene1() {
 	const sceneRef = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: sceneRef,
-		offset: ["start end", "end start"]
+		offset: ["start end", "end start"],
+		layoutEffect: true
 	});
-
 	const scene = useRef({
-		"frame1": {
-			"threshold": 100 / 950,
-			"thresholdCrossed": false,
-		},
-		"frame2": {
-			"threshold": 250 / 950,
-			"thresholdCrossed": false,
-		},
-		"frame3": {
-			"threshold": 400 / 950,
-			"thresholdCrossed": false,
-		},
-		"frame4": {
-			"threshold": 550 / 950,
-			"thresholdCrossed": false,
-		},
-		"frame5": {
-			"threshold": 700 / 950,
-			"thresholdCrossed": false,
-		}
+		"frame1": { "threshold": 100 / 950, "exitLimit": 0.0 / 950, "isActive": false },
+		"frame2": { "threshold": 250 / 950, "exitLimit": 150 / 950, "isActive": false },
+		"frame3": { "threshold": 400 / 950, "exitLimit": 300 / 950, "isActive": false },
+		"frame4": { "threshold": 550 / 950, "exitLimit": 450 / 950, "isActive": false },
+		"frame5": { "threshold": 700 / 950, "exitLimit": 600 / 950, "isActive": false }
 	});
-
 	const sceneControls = {
-		"slide-1-text-wrapper": useAnimation(),
-		"text-1": useAnimation(),
-		"text-2": useAnimation(),
-		"text-3": useAnimation(),
-		"text-5": useAnimation(),
-		"text-6": useAnimation(),
-		"text-7": useAnimation()
+		"slide1": useAnimation(), "text1": useAnimation(), "text2": useAnimation(),
+		"text3": useAnimation(), "text5": useAnimation(), "text6": useAnimation(),
+		"text7": useAnimation()
+	};
+	const sceneVariants = {
+		"slide1": {
+			"frame1": { x: 315.075, transition: { duration: .5 } },
+			"frame2": { x: 0, y: 48, transition: { duration: .5 } },
+			"frame3": { y: 0, transition: { duration: .5 } }
+		},
+		"text1": {
+			"hidden": { opacity: 0 },
+			"frame1": { opacity: 1, transition: { duration: 1.5 } },
+			"frame2": { transition: { duration: .5 } }
+		},
+		"text2": {
+			"hidden": { opacity: 0, transition: { duration: .5 } },
+			"frame2": { opacity: 1, transition: { duration: .5 } }
+		},
+		"text3": {
+			"hidden": { opacity: 0, y: 192, transition: { duration: .5 } },
+			"frame3": { opacity: 1, y: 0, transition: { duration: .5 } }
+		},
+		"text5": {
+			"hidden": { opacity: 0, y: 500 },
+			"frame5": { opacity: 1, y: 0 }
+		},
+		"text6": {
+			"hidden": { opacity: 0, y: 500 },
+			"frame5": { opacity: 1, y: 0, transition: { delay: .5 } }
+		},
+		"text7": {
+			"hidden": { opacity: 0, y: 500 },
+			"frame5": { opacity: 1, y: 0, transition: { delay: 1 } }
+		}
 	};
 
-	const slideDisplace = useTransform(scrollYProgress, [450 / 950, 650 / 950], ["0%", "-100%"]);
+	// Progressive Animations
+	const slideDisplace = useTransform(
+		scrollYProgress, [450 / 950, 650 / 950], ["0%", "-100%"]
+	);
 
-	useEffect(() => {
-		sceneControls["text-1"].start("frame1");
-	}, []);
+	// Scroll-Triggered Animations
+	const checkThreshold = (y, isMount = false) => {
+		const { frame1, frame2, frame3, frame4, frame5 } = scene.current;
+		const { slide1, text1, text2, text3, text5, text6, text7 } = sceneControls;
+
+		const animateControl = (control, variant) => {
+			if (isMount) control.set(variant);
+			else control.start(variant);
+		};
+		
+		// Frame 1
+		if (y >= frame1.threshold && (!frame1.isActive || isMount)) {
+			scene.current.frame1.isActive = true;
+			
+			animateControl(slide1, "frame1");
+			animateControl(text1, "frame1");
+		}
+
+		else if (y >= frame1.exitLimit && y < frame1.threshold && (frame1.isActive || isMount)) {
+			scene.current.frame1.isActive = false;
+			// Redundant, threshold should always be passed for scene 1
+		}
+
+		// Frame 2
+		if (y >= frame2.threshold && (!frame2.isActive || isMount)) {
+			scene.current.frame2.isActive = true;
+			
+			animateControl(slide1, "frame2");
+			animateControl(text1, "frame2");
+			animateControl(text2, "frame2");
+		}
+
+		else if (y >= frame2.exitLimit && y < frame2.threshold && (frame2.isActive || isMount)) {
+			scene.current.frame2.isActive = false;
+			
+			animateControl(slide1, "frame1");
+			animateControl(text1, "frame1");
+			animateControl(text2, "hidden");
+		}
+
+		// Frame 3
+		if (y >= frame3.threshold && (!frame3.isActive || isMount)) {
+			scene.current.frame3.isActive = true;
+			
+			animateControl(slide1, "frame3");
+			animateControl(text3, "frame3");
+		}
+
+		else if (y >= frame3.exitLimit && y < frame3.threshold && (frame3.isActive || isMount)) {
+			scene.current.frame3.isActive = false;
+
+			animateControl(slide1, "frame2");
+			animateControl(text3, "hidden");
+		}
+
+		// Frame 4
+		if (y >= frame4.threshold && (!frame4.isActive || isMount)) {
+			scene.current.frame4.isActive = true;
+		}
+
+		else if (y >= frame4.exitLimit && y < frame4.threshold && (frame4.isActive || isMount)) {
+			scene.current.frame4.isActive = false;
+		}
+
+		// Frame 5
+		if (y >= frame5.threshold && (!frame5.isActive || isMount)) {
+			scene.current.frame5.isActive = true;
+
+			animateControl(text5, "frame5");
+			animateControl(text6, "frame5");
+			animateControl(text7, "frame5");
+		}
+
+		else if (y >= frame5.exitLimit && y < frame5.threshold && (frame5.isActive || isMount)) {
+			scene.current.frame5.isActive = false;
+
+			animateControl(text5, "hidden");
+			animateControl(text6, "hidden");
+			animateControl(text7, "hidden");
+		}
+	};
+
+	// Check initial scroll (needed for refresh in middle of page)
+	let isMount = true;
+	useLayoutEffect(() => {
+		const targetProgress = useTargetScrollProgress(sceneRef.current);
+		checkThreshold(targetProgress, true);
+		isMount = false;
+	});
 
 	useEffect(() => {
 		const unsubscribe = scrollYProgress.on("change", (y) => {
-			console.log(y); // REMOVE LATER
-			const { frame2, frame3, frame4, frame5 } = scene.current;
-			
-			// Frame 2
-			if (y >= frame2.threshold && !frame2.thresholdCrossed) {	// Enter threshold
-				scene.current["frame2"].thresholdCrossed = true;
-				sceneControls["slide-1-text-wrapper"].start("frame2");
-				sceneControls["text-1"].start("frame2");
-				sceneControls["text-2"].start("frame2");
-			}
-
-			else if (y < frame2.threshold && frame2.thresholdCrossed) {	// Exit threshold
-				scene.current["frame2"].thresholdCrossed = false;
-				sceneControls["slide-1-text-wrapper"].start("frame1");
-				sceneControls["text-1"].start("frame1");
-				sceneControls["text-2"].start("hidden");
-			}
-
-			// Frame 3
-			if (y >= frame3.threshold && !frame3.thresholdCrossed) {
-				scene.current["frame3"].thresholdCrossed = true;
-				sceneControls["slide-1-text-wrapper"].start("frame3");
-				sceneControls["text-3"].start("frame3");
-			}
-
-			else if (y < frame3.threshold && frame3.thresholdCrossed) {
-				scene.current["frame3"].thresholdCrossed = false;
-				sceneControls["slide-1-text-wrapper"].start("frame2");
-				sceneControls["text-3"].start("hidden");
-			}
-
-			// Frame 4
-			if (y >= frame4.threshold && !frame4.thresholdCrossed) {
-				scene.current["frame4"].thresholdCrossed = true;
-			}
-
-			else if (y < frame4.threshold && frame4.thresholdCrossed) {
-				scene.current["frame4"].thresholdCrossed = false;
-			}
-
-			// Frame 5
-			if (y >= frame5.threshold && !frame5.thresholdCrossed) {
-				scene.current["frame5"].thresholdCrossed = true;
-				sceneControls["text-5"].start("frame5");
-				sceneControls["text-6"].start("frame5");
-				sceneControls["text-7"].start("frame5");
-			}
-
-			else if (y < frame5.threshold && frame5.thresholdCrossed) {
-				scene.current["frame5"].thresholdCrossed = false;
-				sceneControls["text-5"].start("hidden");
-				sceneControls["text-6"].start("hidden");
-				sceneControls["text-7"].start("hidden");
-			}
+			if (!isMount) checkThreshold(y);
 		});
 
-		// Unsubscribe scene onChange callback upon unmount
 		return () => unsubscribe();
 	}, [scrollYProgress]);
 
 	return (
 		<div id="Welcome" className="scene" ref={sceneRef}>
-			<div className="stage-1-container">
-				<div className="trigger-0"/>
-				<div className="text-1-trigger"/>
-				<div className="text-2-trigger"/>
-				<div className="text-3-trigger"/>
-				<div className="slide-1-trigger"/>
-				
-				<div className="stage-1">
-					<m.div className="stage-1-slide-1"
+			<div className={styles.stage1Container}>
+				<div className={styles.stage1}>
+					<m.div className={styles.stage1Slide1}
 						style={{ x: slideDisplace }}
 					>
-						<m.div className="slide-1-text-wrapper"
-							style={{ y: 48 }}
+						<m.div className={styles.slide1TextWrapper} style={{ y: 48 }}
 							initial="frame1"
-							animate={sceneControls["slide-1-text-wrapper"]}
-							variants={{
-								frame1: {
-									x: 315.075,
-									transition: { duration: .5 }
-								},
-								frame2: {
-									x: 0,
-									y: 48,
-									transition: { duration: .5 }
-								},
-								frame3: {
-									y: 0,
-									transition: { duration: .5 }
-								}
-							}}
+							animate={sceneControls.slide1}
+							variants={sceneVariants.slide1}
 						>
 							<div>
-								<m.span className="text-1"
+								<m.span className={styles.text1}
 									initial="hidden"
-									animate={sceneControls["text-1"]}
-									variants={{
-										hidden: { 
-											opacity: 0
-										},
-										frame1: { 
-											opacity: 1,
-											transition: { duration: 1.5 }
-										},
-										frame2: {
-											transition: { duration: .5 }
-										}
-									}}
+									animate={sceneControls.text1}
+									variants={sceneVariants.text1}
 								>
 									Hello!
 								</m.span>
 
-								<m.span className="text-2"
+								<m.span className={styles.text2}
 									initial="hidden"
-									animate={sceneControls["text-2"]}
-									variants={{
-										hidden: {
-											opacity: 0,
-											transition: { duration: .5 }
-										},
-										frame2: {
-											opacity: 1,
-											transition: { duration: .5 }
-										}
-									}}
+									animate={sceneControls.text2}
+									variants={sceneVariants.text2}
 								>
 									My Name Is Salvador
 								</m.span>
@@ -183,81 +190,41 @@ function Scene1() {
 
 							<m.div
 								initial="hidden"
-								animate={sceneControls["text-3"]}
-								variants={{
-									hidden: {
-										opacity: 0,
-										y: 192,
-										transition: { duration: .5 }
-									},
-									frame3: {
-										opacity: 1,
-										y: 0,
-										transition: { duration: .5 }
-									}
-								}}
+								animate={sceneControls.text3}
+								variants={sceneVariants.text3}
 							>
-								<span className="text-3">And Welcome To My Online Resume!</span>
+								<span className={styles.text3}>And Welcome To My Online Resume!</span>
 							</m.div>
 						</m.div>
 					</m.div>
 
-					<m.div className="stage-1-slide-2"
+					<m.div className={styles.stage1Slide2}
 						style={{ x: slideDisplace }}
 					>
-						<div className="slide-2-text-wrapper">
-							<span className="text-4">This Site Will Showcase My</span>
+						<div className={styles.slide2TextWrapper}>
+							<span className={styles.text4}>This Site Will Showcase My</span>
 
-							<div className="subtext-5">
-								<m.span className="text-5"
+							<div className={styles.subtext5}>
+								<m.span className={styles.text5}
 									initial="hidden"
-									animate={sceneControls["text-5"]}
-									variants={{
-										hidden: {
-											opacity: 0,
-											y: 500
-										},
-										frame5: {
-											opacity: 1,
-											y: 0
-										}
-									}}
+									animate={sceneControls.text5}
+									variants={sceneVariants.text5}
 									transition={{ duration: .5 }}
 								>
 									Skills,
 								</m.span>
-								<m.span className="text-6"
+								<m.span className={styles.text6}
 									initial="hidden"
-									animate={sceneControls["text-6"]}
-									variants={{
-										hidden: {
-											opacity: 0,
-											y: 500
-										},
-										frame5: {
-											opacity: 1,
-											y: 0,
-											transition: { delay: .5 }
-										}
-									}}
+									animate={sceneControls.text6}
+									variants={sceneVariants.text6}
 									transition={{ duration: .5 }}
 								>
 									Experience
 								</m.span>
-								<m.span className="text-7"
+								<m.span className={styles.text7}
 									initial="hidden"
-									animate={sceneControls["text-7"]}
-									variants={{
-										hidden: {
-											opacity: 0,
-											y: 500
-										},
-										frame5: {
-											opacity: 1,
-											y: 0,
-											transition: { delay: 1 }
-										}
-									}}
+									animate={sceneControls.text7}
+									variants={sceneVariants.text7}
 									transition={{ duration: .5 }}
 								>
 									And Projects
@@ -268,7 +235,7 @@ function Scene1() {
 				</div>
 			</div>
 
-			<div className="interscene-transition-1"/>
+			<div className={styles.intersceneTransition1}/>
 		</div>
 	);
 }

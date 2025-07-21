@@ -1,67 +1,19 @@
-.scene {
-	position: relative;
-}
-
-.stage-1-container {
+.stage1Container {
 	height: 750vh;
 	position: relative;
 }
 
-.interscene-transition-1 {
+.intersceneTransition1 {
 	height: 100vh;
 	background: linear-gradient(
 		to top,
 		#6495ed 0%,
 		#00000000 100%
 	);
+	background-color: #ffff00;
 }
 
-.trigger-0 {
-	height: 100vh;
-	position: absolute;
-	top: 0;
-
-	width: 10px;
-	background-color: white;
-}
-
-.text-1-trigger {
-	height: 100vh;
-	position: absolute;
-	top: 150vh;
-
-	width: 10px;
-	background-color: blue;
-}
-
-.text-2-trigger {
-	height: 100vh;
-	position: absolute;
-	top: 300vh;
-
-	width: 10px;
-	background-color: yellow;
-}
-
-.text-3-trigger {
-	height: 100vh;
-	position: absolute;
-	top: 450vh;
-
-	width: 10px;
-	background-color: red;
-}
-
-.slide-1-trigger {
-	height: 100vh;
-	position: absolute;
-	top: 600vh;
-
-	width: 10px;
-	background-color: greenyellow;
-}
-
-.stage-1 {
+.stage1 {
 	display: flex;
 	height: 100vh;
 	position: sticky;
@@ -69,7 +21,7 @@
 	overflow: hidden;
 }
 
-.stage-1-slide-1 {
+.stage1Slide1 {
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -81,7 +33,7 @@
 	background-color: #0000005e;
 }
 
-.slide-1-text-wrapper {
+.slide1TextWrapper {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -89,25 +41,25 @@
 	width: fit-content
 }
 
-.text-1 {
+.text1 {
 	display: inline-block;
 	font-size: 4rem;
 	margin-right: 1rem;
 }
 
-.text-2 {
+.text2 {
 	display: inline-block;
 	font-size: 4rem;
 }
 
-.text-3 {
+.text3 {
 	display: inline-block;
 	font-size: 4rem;
 	text-wrap: wrap;
 	text-align: center;
 }
 
-.stage-1-slide-2 {
+.stage1Slide2 {
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -116,10 +68,10 @@
 	justify-content: center;
 	overflow: hidden;
 	position: relative;
-	background-color: #4444005e;
+	background-color: #ffff0069;
 }
 
-.slide-2-text-wrapper {
+.slide2TextWrapper {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -127,17 +79,17 @@
 	width: fit-content;
 }
 
-.text-4 {
+.text4 {
 	display: inline-block;
 	font-size: 4rem;
 	text-wrap: wrap;
 	text-align: center;
 }
 
-.subtext-5 {
+.subtext5 {
 	font-size: 4rem;
 }
 
-.subtext-5 > span:not(:last-child) {
+.subtext5 > span:not(:last-child) {
 	margin-right: 1rem;
 }

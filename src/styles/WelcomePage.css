@@ -10,7 +10,7 @@
 	position: relative;
 }
 
-.scene-1 {
+.scene-2 {
 	background-color: #6495ed;
 	height: 100vh;
 	display: grid;
@@ -18,7 +18,7 @@
 	justify-content: center;
 }
 
-.scene-2 {
+.scene-3 {
 	background-color: #ff000065;
 	height: 100vh;
 	display: grid;
@@ -26,7 +26,7 @@
 	justify-content: center;
 }
 
-.scene-3 {
+.scene-4 {
 	background-color: #6495ed;
 	height: 100vh;
 	display: grid;
