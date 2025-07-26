@@ -7,10 +7,9 @@
 	height: 100vh;
 	background: linear-gradient(
 		to top,
-		#6495ed 0%,
-		#00000000 100%
+		#00000000 0%,
+		#ff7f50 100%
 	);
-	background-color: #ffff00;
 }
 
 .stage1 {
@@ -30,7 +29,6 @@
 	justify-content: center;
 	position: relative;
 	overflow: hidden;
-	background-color: #0000005e;
 }
 
 .slide1TextWrapper {
@@ -68,7 +66,7 @@
 	justify-content: center;
 	overflow: hidden;
 	position: relative;
-	background-color: #ffff0069;
+	background-color: #ff7f50;
 }
 
 .slide2TextWrapper {

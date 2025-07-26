@@ -10,26 +10,25 @@
 	position: relative;
 }
 
-.scene-2 {
-	background-color: #6495ed;
-	height: 100vh;
-	display: grid;
-	align-items: center;
-	justify-content: center;
+.welcome-progress-bar {
+	height: 10px;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background-color: #888888c0;
 }
 
-.scene-3 {
-	background-color: #ff000065;
-	height: 100vh;
-	display: grid;
-	align-items: center;
-	justify-content: center;
-}
-
-.scene-4 {
-	background-color: #6495ed;
-	height: 100vh;
-	display: grid;
-	align-items: center;
-	justify-content: center;
+.welcome-progress-bar-fill {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: radial-gradient(
+		circle,
+		#e67a7a 0%, 
+		#eb8f67 20%, 
+		#c6d468 50%, 
+		#5ed672 70%, 
+		#5fbeed 100%
+	);
+	background-size: 200vw;
 }

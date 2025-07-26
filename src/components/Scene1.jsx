@@ -173,13 +173,13 @@ function Scene1() {
 						style={{ x: slideDisplace }}
 					>
 						<m.div className={styles.slide1TextWrapper} style={{ y: 48 }}
-							initial="frame1"
+							initial={false}
 							animate={sceneControls.slide1}
 							variants={sceneVariants.slide1}
 						>
 							<div>
 								<m.span className={styles.text1}
-									initial="hidden"
+									initial={false}
 									animate={sceneControls.text1}
 									variants={sceneVariants.text1}
 								>
@@ -187,7 +187,7 @@ function Scene1() {
 								</m.span>
 
 								<m.span className={styles.text2}
-									initial="hidden"
+									initial={false}
 									animate={sceneControls.text2}
 									variants={sceneVariants.text2}
 								>
@@ -196,7 +196,7 @@ function Scene1() {
 							</div>
 
 							<m.div
-								initial="hidden"
+								initial={false}
 								animate={sceneControls.text3}
 								variants={sceneVariants.text3}
 							>
@@ -213,7 +213,7 @@ function Scene1() {
 
 							<div className={styles.subtext5}>
 								<m.span className={styles.text5}
-									initial="hidden"
+									initial={false}
 									animate={sceneControls.text5}
 									variants={sceneVariants.text5}
 									transition={{ duration: .5 }}
@@ -221,7 +221,7 @@ function Scene1() {
 									Skills,
 								</m.span>
 								<m.span className={styles.text6}
-									initial="hidden"
+									initial={false}
 									animate={sceneControls.text6}
 									variants={sceneVariants.text6}
 									transition={{ duration: .5 }}
@@ -229,7 +229,7 @@ function Scene1() {
 									Experience
 								</m.span>
 								<m.span className={styles.text7}
-									initial="hidden"
+									initial={false}
 									animate={sceneControls.text7}
 									variants={sceneVariants.text7}
 									transition={{ duration: .5 }}

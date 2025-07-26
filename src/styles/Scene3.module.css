@@ -1,0 +1,96 @@
+.stageContainer {
+	height: 1200vh;
+}
+
+.stage1 {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.slide1, .slide2, .slide3, .slide4 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 4rem;
+}
+
+.slide1 {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-color: #6495ed;
+}
+
+.slide2 {
+	height: 100%;
+	width: 100%;
+	left: -50%;
+	padding-left: 50%;
+	position: absolute;
+	transform-origin: top right;
+	background-color: #ff7f50;
+}
+
+.slide3 {
+	height: 100%;
+	width: 100%;
+	right: -50%;
+	padding-right: 50%;
+	position: absolute;
+	transform-origin: top left;
+	background-color: #6495ed;
+}
+
+.slide4 {
+	height: 100%;
+	gap: 4rem;
+}
+
+.text {
+	transition: opacity .3s ease;
+	width: 800px;
+	text-align: center;
+}
+
+.homeButton {
+	all: unset;
+	background-color: #1a5ad1;
+	border-radius: 10px;
+	padding-inline: 15px;
+	transition: background-color .3s ease;
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	box-shadow: #00ff6a;
+	animation: box-shadow-pulse 3s ease-in-out infinite alternate;
+}
+
+.homeButton:hover {
+	background-color: #6495ed;
+}
+
+.homeButton:active {
+	background-color: #00ff6a;
+	transition: none;
+}
+
+.homepageLink {
+	text-shadow: 0 0 5px;
+}
+
+.homepageIcon {
+
+}
+
+@keyframes box-shadow-pulse {
+	0% {
+		box-shadow: 0 0 5px #1a5ad1;
+	}
+	100% {
+		box-shadow: 0 0 20px #6495ed;
+	}
+}
