@@ -84,7 +84,7 @@
 	animation:
 		loading-bar-fill 2.5s linear forwards,
 		loading-bar-fade .5s 2.5s linear forwards;
-	filter: drop-shadow(15px 0px 15px)
+	filter: drop-shadow(15px 0px 15px);
 }
 
 @keyframes loading-bar-fill {

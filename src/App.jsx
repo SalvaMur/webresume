@@ -6,7 +6,7 @@ import ContactPage from "./components/ContactPage";
 import ProjectListPage from "./components/ProjectListPage";
 import ProjectPage from "./components/ProjectPage";
 import WelcomePage from "./components/WelcomePage";
-import { R_ABOUT, R_CONTACT, R_HOME, R_PROJECTS } from "./constants/routes";
+import { R_ABOUT, R_CONTACT, R_HOME, R_PROJECTS, R_WELCOME } from "./constants/routes";
 import HomeLayout from "./layouts/HomeLayout";
 import RootLayout from "./layouts/RootLayout";
 
@@ -23,17 +23,23 @@ function App() {
 		}
 
 		if (!sessionStorage.getItem("isDarkMode")) {
-			sessionStorage.setItem("isDarkMode", JSON.stringify(false));
+			sessionStorage.setItem("isDarkMode", JSON.stringify(true));
 		}
 	}, []);
 
-	// Update route history upon route change
+	// Update route history upon route change. Scroll to top between Welcome and Home routes
 	useEffect(() => {
 		const newHistory = [...routeHistory];
 		if (newHistory[newHistory.length - 1] !== pathname) {
 			newHistory.push(pathname);
 			sessionStorage.setItem("routeHistory", JSON.stringify(newHistory));
 			setRouteHistory(newHistory);
+		}
+
+		const prevRoute = routeHistory[routeHistory.length - 1];
+		if (prevRoute !== pathname) {
+			if (prevRoute === R_WELCOME && pathname === R_HOME) window.scrollTo(0, 0);
+			else if (prevRoute === R_HOME && pathname === R_WELCOME) window.scrollTo(0, 0);
 		}
 	}, [pathname]);
 
