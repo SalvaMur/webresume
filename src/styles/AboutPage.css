@@ -64,6 +64,7 @@
 	float: right;
 	padding-right: 2rem;
 	padding-left: 1rem;
+	padding-bottom: 1rem;
 }
 
 .table-contents {
@@ -121,5 +122,87 @@
 }
 
 .section p {
+	text-indent: 2rem;
 	margin-block: 1rem;
+}
+
+.education-item {
+	margin-block: 1rem;
+}
+
+.education-header1 {
+	font-size: 1.5rem;
+}
+
+.education-header2 {
+	text-indent: 2rem;
+	font-size: 1.2rem;
+}
+
+.education-course {
+	margin-block: 1rem;
+}
+
+.education-course p {
+	margin-left: 2rem;
+	margin-block: 0.5rem;
+}
+
+.work-position {
+	font-size: 1.5rem;
+}
+
+.skill-group-header {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.skill-group {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: 4rem;
+	margin-left: 2rem;
+	margin-block: 1rem;
+	height: 136px;
+}
+
+.skill {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	
+}
+
+.skill-icon {
+	height: 4rem;
+	width: 4rem;
+	display: flex;
+	justify-content: center;
+}
+
+.skill img {
+	height: 4rem;
+	width: fit-content;
+}
+
+.skill-name {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	width: min-content;
+	text-align: center;
+}
+
+.award {
+	margin-block: 2rem;
+}
+
+.award-name {
+	font-size: 1.5rem;
+}
+
+.award p {
+	margin-block: 0.5rem;
 }

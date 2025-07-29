@@ -200,7 +200,7 @@ function Scene1() {
 								animate={sceneControls.text3}
 								variants={sceneVariants.text3}
 							>
-								<span className={styles.text3}>And Welcome To My Online Resume!</span>
+								<span className={styles.text3}>and Welcome to My Online Resume</span>
 							</m.div>
 						</m.div>
 					</m.div>
@@ -209,7 +209,7 @@ function Scene1() {
 						style={{ x: slideDisplace }}
 					>
 						<div className={styles.slide2TextWrapper}>
-							<span className={styles.text4}>This Site Will Showcase My</span>
+							<span className={styles.text4}>Here, You'll Find Highlights of My</span>
 
 							<div className={styles.subtext5}>
 								<m.span className={styles.text5}
@@ -226,7 +226,7 @@ function Scene1() {
 									variants={sceneVariants.text6}
 									transition={{ duration: .5 }}
 								>
-									Experience
+									Experience,
 								</m.span>
 								<m.span className={styles.text7}
 									initial={false}
@@ -234,7 +234,7 @@ function Scene1() {
 									variants={sceneVariants.text7}
 									transition={{ duration: .5 }}
 								>
-									And Projects
+									and Projects
 								</m.span>
 							</div>
 						</div>

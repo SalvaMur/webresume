@@ -59,7 +59,8 @@
 .progressBarFill {
 	height: 100%;
 	width: 100%;
-	filter: drop-shadow(3px 0px 3px);
+	transform-origin: 0;
+	box-shadow: 15px 0 25px;
 }
 
 .slide {

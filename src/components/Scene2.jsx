@@ -76,17 +76,17 @@ function Scene2() {
 		(y) => y >= frame5 && y < frame7 ? 200 : 25
 	);
 	
-	const fill1X = useTransform(scrollYProgress,
+	const fill1Scale = useTransform(scrollYProgress,
 		[frame1, frame3],
-		["-135%", "0%"]
+		[0, 1]
 	);
-	const fill2X = useTransform(scrollYProgress,
+	const fill2Scale = useTransform(scrollYProgress,
 		[frame3, frame5],
-		["-135%", "0%"]
+		[0, 1]
 	);
-	const fill3X = useTransform(scrollYProgress,
+	const fill3Scale = useTransform(scrollYProgress,
 		[frame5, frame7],
-		["-135%", "0%"]
+		[0, 1]
 	);
 
 	const fill1Color = useTransform(scrollYProgress,
@@ -116,36 +116,36 @@ function Scene2() {
 							<m.span key="text1" className={styles.text} 
 								style={{ x: text1X, opacity: text1Opacity, scale: text1Scale }}
 							>
-								lorem ipsum lorem ipsum my name is Salvador and I am looking for a job. i am open to oppurtunites 1
+								I'm a Computer Science Graduate With a Minor in Mathematics From Cleveland State University
 							</m.span>
 
 							<m.span key="text2" className={styles.text}
 								style={{ x: text2X, opacity: text2Opacity, scale: text2Scale }}
 							>
-								lorem ipsum lorem ipsum my name is Salvador and I am looking for a job. i am open to oppurtunites 2
+								I'm Interested in Full-Stack Development, Machine Learning, and Data Science
 							</m.span>
 
 							<m.span key="text3" className={styles.text}
 								style={{ x: text3X, opacity: text3Opacity, scale: text3Scale }}
 							>
-								lorem ipsum lorem ipsum my name is Salvador and I am looking for a job. i am open to oppurtunites 3
+								I Value Collaboration, Efficient Design, and Continuous Learning
 							</m.span>
 						</div>
 
 						<div className={styles.progressBars}>
 							<m.div key="bar1" className={styles.progressBar} style={{ width: bar1Width }}>
 								<m.div key="fill1" className={styles.progressBarFill}
-									style={{ x: fill1X, backgroundColor: fill1Color, color: fill1Color }}
+									style={{ scaleX: fill1Scale, backgroundColor: fill1Color, color: fill1Color }}
 								/>
 							</m.div>
 							<m.div key="bar2" className={styles.progressBar} style={{ width: bar2Width }}>
 								<m.div key="fill2" className={styles.progressBarFill}
-									style={{ x: fill2X, backgroundColor: fill2Color, color: fill2Color }}
+									style={{ scaleX: fill2Scale, backgroundColor: fill2Color, color: fill2Color }}
 								/>
 							</m.div>
 							<m.div key="bar3" className={styles.progressBar} style={{ width: bar3Width }}>
 								<m.div key="fill3" className={styles.progressBarFill}
-									style={{ x: fill3X, backgroundColor: fill3Color, color: fill3Color }}
+									style={{ scaleX: fill3Scale, backgroundColor: fill3Color, color: fill3Color }}
 								/>
 							</m.div>
 						</div>

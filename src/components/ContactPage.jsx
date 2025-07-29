@@ -1,3 +1,4 @@
+import { motion as m } from "framer-motion";
 import "../styles/ContactPage.css";
 import { HomeIcon } from "./svg/icons";
 
@@ -33,8 +34,10 @@ function ContactPage() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<img width="50px" height="42.5167px" className="link-icon"
+									<m.img width="50px" height="42.5167px" className="link-icon"
 										src={`${import.meta.env.BASE_URL}content/images/social_links/LI-In-Bug.png`}
+										initial={{ opacity: 0, y: 20 }}
+										animate={{ opacity: 1, y: 0 }}
 									/>
 									<span>Salvador Murillo</span>
 								</a>
@@ -45,8 +48,10 @@ function ContactPage() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<img width="50px" height="48.9167px" className="link-icon"
+									<m.img width="50px" height="48.9167px" className="link-icon"
 										src={`${import.meta.env.BASE_URL}content/images/social_links/github-mark-white.png`}
+										initial={{ opacity: 0, y: 20 }}
+										animate={{ opacity: 1, y: 0 }}
 									/>
 									<span>SalvaMur</span>
 								</a>

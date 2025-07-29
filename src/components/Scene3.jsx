@@ -70,7 +70,7 @@ function Scene3() {
 						style={{ visibility: slide1Visibility }}
 					>
 						<span className={styles.text}>
-							lorem ipsum lorem ipsum my name is Salvador and I am looking for a job. i am open to oppurtunites
+							I Am Eager to Apply My Knowledge in Real-World Projects and Collaborative Environments
 						</span>
 					</m.div>
 
@@ -78,7 +78,7 @@ function Scene3() {
 						style={{ rotate: slide2Rotate, visibility: slide2Visibility }}
 					>
 						<m.span className={styles.text} style={{ opacity: text2Opacity }}>
-							lorem ipsum lorem ipsum my name is Salvador and I am looking for a job. i am open to oppurtunites
+							I Am Equally Ready to Learn From Industry Challenges and Solving Them Creatively
 						</m.span>
 					</m.div>
 
@@ -86,7 +86,7 @@ function Scene3() {
 						style={{ rotate: slide3Rotate, y: slide3Y, visibility: slide3Visibility }}
 					>
 						<m.span className={styles.text} style={{ opacity: text3Opacity }}>
-							lorem ipsum lorem ipsum my name is Salvador and I am looking for a job. i am open to oppurtunites
+							As Well as Always Being Committed to Learning New Tools, Languages, and the Best Practices
 						</m.span>
 					</m.div>
 
@@ -94,12 +94,12 @@ function Scene3() {
 						style={{ visibility: slide4Visibility }}
 					>
 						<span className={styles.text}>
-							lorem ipsum lorem ipsum my name is Salvador and I am looking for a job. i am open to oppurtunites
+							Let's Get Started &mdash; Explore My Work and Background
 						</span>
 						<Link to={R_HOME} className={styles.homeButton}
 							draggable={false}
 						>
-							<span className={styles.homepageLink}>Enter Website</span>
+							<span className={styles.homepageLink}>Go to Homepage</span>
 							<div className={styles.homepageIcon}>
 								<HomeIcon width="4rem" height="4rem" fill="aliceblue"/>
 							</div>
