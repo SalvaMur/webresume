@@ -13,7 +13,7 @@ function Banner() {
 
 		summaryIntervalRef.current = setInterval(() => {
 			setSummaryIndex((prev) => (prev + 1) % 3);
-		}, 3000);
+		}, 15000);
 	}
 
 	useEffect(() => {

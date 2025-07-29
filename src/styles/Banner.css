@@ -82,8 +82,8 @@
 
 .loading-bar.active > .loading-bar-fill {
 	animation:
-		loading-bar-fill 2.5s linear forwards,
-		loading-bar-fade .5s 2.5s linear forwards;
+		loading-bar-fill 14.5s linear forwards,
+		loading-bar-fade .5s 14.5s linear forwards;
 	filter: drop-shadow(15px 0px 15px);
 }
 
