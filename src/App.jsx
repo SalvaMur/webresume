@@ -37,10 +37,8 @@ function App() {
 		}
 
 		const prevRoute = routeHistory[routeHistory.length - 1];
-		if (prevRoute !== pathname) {
-			if (prevRoute === R_WELCOME && pathname === R_HOME) window.scrollTo(0, 0);
-			else if (prevRoute === R_HOME && pathname === R_WELCOME) window.scrollTo(0, 0);
-		}
+		const layoutChanged = (prevRoute === R_WELCOME && pathname === R_HOME) || (prevRoute === R_HOME && pathname === R_WELCOME);
+		if (prevRoute !== pathname && layoutChanged) window.scrollTo(0, 0);
 	}, [pathname]);
 
 	// Callback to go back to a previous route
