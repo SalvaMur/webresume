@@ -2,6 +2,7 @@ import { motion as m } from "framer-motion";
 import { createContext, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Hud from "../components/Hud";
+import { R_WELCOME } from "../constants/routes";
 import "../styles/Layout.css";
 
 export const RefContext = createContext(null);
@@ -10,7 +11,7 @@ function RootLayout({ routeHistory, goBack, pathname }) {
 	const [sentinelRef, setSentinelRef] = useState(null);
 	const [showTopBtn, setShowTopBtn] = useState(false);
 	const [isDarkMode, setDarkMode] = useState(() => {
-		return JSON.parse(sessionStorage.getItem("isDarkMode") || "false");
+		return JSON.parse(sessionStorage.getItem("isDarkMode") || "true");
 	});
 
 	useEffect(() => {
@@ -48,6 +49,7 @@ function RootLayout({ routeHistory, goBack, pathname }) {
 					${isDarkMode ? "dark-mode" : "light-mode"}
 				`}/>
 				
+			{ pathname !== R_WELCOME && (
 				<div>
 					<m.div key="svg-dark-mode" className="svg-scroll background dark-mode"
 						initial={{ opacity: isDarkMode ? 1 : 0 }}
@@ -60,6 +62,7 @@ function RootLayout({ routeHistory, goBack, pathname }) {
 						transition={{ duration: 1 }}
 					/>
 				</div>
+			)}
 			</div>
 
 			<div id="hud">

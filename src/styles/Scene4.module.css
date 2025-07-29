@@ -1,0 +1,19 @@
+.frames {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+}
+
+.frame {
+	width: 30px;
+	height: 100vh;
+	margin-bottom: 100vh;
+	z-index: 1000;
+}
+
+.frame1 { background-color: red; }
+.frame2 { background-color: blue; }
+.frame3 { background-color: yellow; }
+.frame4 { background-color: greenyellow; }
+.frame5 { background-color: violet; }
+.frame6 { background-color: orange; }

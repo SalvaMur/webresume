@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { R_ABOUT, R_CONTACT, R_HOME, R_PROJECTS, R_WELCOME } from "../constants/routes";
 import "../styles/Footer.css";
-import { HomeIcon } from "./svg/icons";
+import { SiteLogo } from "./svg/icons";
 
 function Footer({ selected }) {
 	let logoPathText;
@@ -24,7 +24,7 @@ function Footer({ selected }) {
 				<div className="footer-row-wrapper">
 					<div className="footer-row">
 						<div className="footer-logo">
-							<HomeIcon width={100} height={100} fill="aliceblue"/>
+							<SiteLogo width={100} height={100} fill="aliceblue"/>
 							<span className="footer-heading">WebResume</span>
 							<span className="footer-path">Home {logoPathText}</span>
 						</div>

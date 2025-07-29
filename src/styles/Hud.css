@@ -14,7 +14,7 @@
 	border-radius: 50%;
 	padding: 10px;
 	backdrop-filter: blur(30px);
-	filter: drop-shadow(0 5px 3px #000000)
+	filter: drop-shadow(0 5px 3px #000000);
 }
 
 .hud-button:hover {
